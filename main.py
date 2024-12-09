@@ -3,16 +3,14 @@ import pygame
 import sys
 import time as tm
 
-
 pygame.init()
 
-player_pos = [3, 12]
+player_pos = [4, 15]
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption('Maze Game')
 
 
-# Function to draw the maze
 def draw_maze():
     for row in range(len(maze)):
         for col in range(len(maze[row])):
@@ -66,6 +64,9 @@ def game_loop():
             move_player('D')
         if keys[pygame.K_q] or keys[pygame.K_ESCAPE]:
             sys.exit()
+        if keys[pygame.K_F11]:
+                     ...
+
         draw_maze()
         draw_player()
 
