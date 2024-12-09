@@ -1,11 +1,12 @@
 from settings import *
 import pygame
 import sys
+import time as tm
+
 
 pygame.init()
 
-
-player_pos = [3, 3]
+player_pos = [3, 12]
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption('Maze Game')
@@ -39,8 +40,7 @@ def move_player(direction):
         player_pos = [x, y - 1]
     elif direction == 'D' and y < len(maze[0]) - 1 and maze[x][y + 1] != '#':
         player_pos = [x, y + 1]
-    elif direction == "Q":
-        sys.exit()
+
 
 def game_loop():
     global player_pos
@@ -64,7 +64,8 @@ def game_loop():
             move_player('A')
         if keys[pygame.K_d]:
             move_player('D')
-
+        if keys[pygame.K_q] or keys[pygame.K_ESCAPE]:
+            sys.exit()
         draw_maze()
         draw_player()
 
