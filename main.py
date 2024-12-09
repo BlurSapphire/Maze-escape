@@ -39,7 +39,8 @@ def move_player(direction):
         player_pos = [x, y - 1]
     elif direction == 'D' and y < len(maze[0]) - 1 and maze[x][y + 1] != '#':
         player_pos = [x, y + 1]
-
+    elif direction == "Q":
+        sys.exit()
 
 def game_loop():
     global player_pos
